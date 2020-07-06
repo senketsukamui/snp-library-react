@@ -1,0 +1,14 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "1984",
+      "author": "Orwell"
+    },
+    {
+      "id": 2,
+      "title": "Witcher",
+      "author": "Anjey Sapkowski"
+    }
+  ]
+}
