@@ -17,3 +17,7 @@ code {
   src: url("assets/fonts/gotham.woff");
   font-weight: 400;
 }
+
+* {
+  box-sizing: border-box;
+}

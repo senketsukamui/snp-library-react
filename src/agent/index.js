@@ -1,15 +1,11 @@
-export const makeRequest = (requestType, url, body = {}) => {
-  if (!["GET", "POST", "DELETE", "PATCH"].includes(requestType)) {
-    console.error(`No such request type ${requestType}`);
-    return;
-  }
-  return fetch(url, {
-    method: requestType,
-    body: JSON.stringify(body),
-  }).then((response) => {
-    if (response.ok) {
+export const getRequest = (url) => {
+  return fetch(url)
+    .then((response) => {
       return response.json();
-    }
-    console.error(`${requestType} request error`);
-  });
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 };
+
+export const api = "http://192.168.1.41:3000/books";
