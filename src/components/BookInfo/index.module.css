@@ -1,11 +1,24 @@
-.info {
+/* .info {
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   font-size: 2rem;
-}
+} */
 
 .book-info {
   font-family: "gotham";
+  padding: 5rem;
+}
+
+.title {
+  font-size: 2.8rem;
+}
+
+.author {
+  font-size: 2.6rem;
+}
+
+.description {
+  font-size: 1.2rem;
 }

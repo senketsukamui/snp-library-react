@@ -3,12 +3,15 @@ import styles from "./index.module.css";
 import { getShortString } from "utils";
 import { useDispatch } from "react-redux";
 import { changeCurrentBookId } from "store/slice";
+import { useHistory } from "react-router-dom";
 
 const BookListItem = (props) => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleItemClick = React.useCallback(() => {
     dispatch(changeCurrentBookId(props.id));
+    history.push(`/books/${props.id}`);
   }, [dispatch]);
 
   return (

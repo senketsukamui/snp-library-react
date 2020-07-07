@@ -2,4 +2,8 @@
   padding: 1rem;
   padding-right: 3rem;
   border-right: 3px solid black;
+  max-height: 800px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
 }
