@@ -30,6 +30,25 @@
 }
 
 .modal-form>input {
+  font-family: "gotham";
   border-radius: 5px;
   height: 30px;
+  background: #f7f7f7;
+}
+
+.modal-form>label {
+  font-family: "gotham";
+}
+
+.modal-close,
+.modal-submit {
+  border-radius: 10px;
+  align-self: center;
+  font-size: 1.2rem;
+  width: 80px;
+  text-align: center;
+  background: #f7f7f7;
+  color: #393e46;
+  padding: 5px;
+  cursor: pointer;
 }

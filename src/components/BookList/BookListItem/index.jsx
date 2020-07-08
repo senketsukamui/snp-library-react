@@ -1,9 +1,10 @@
 import React from "react";
 import styles from "./index.module.css";
-import { getShortString } from "utils";
+import { getShortString, isValidImage } from "utils";
 import { useDispatch } from "react-redux";
 import { changeCurrentBookId } from "store/slice";
 import { useHistory } from "react-router-dom";
+import default_book from "assets/images/default_book.jpg";
 
 const BookListItem = (props) => {
   const dispatch = useDispatch();
@@ -12,13 +13,13 @@ const BookListItem = (props) => {
   const handleItemClick = React.useCallback(() => {
     dispatch(changeCurrentBookId(props.id));
     history.push(`/books/${props.id}`);
-  }, [dispatch]);
+  }, [dispatch.history, props.id]);
 
   return (
     <div className={styles["booklist-item"]} onClick={handleItemClick}>
       <div className={styles["image"]}>
         <img
-          src={props.image}
+          src={isValidImage(props.image) ? props.image : default_book}
           alt="Book image"
           className={styles["book-logo"]}
         />
@@ -30,6 +31,7 @@ const BookListItem = (props) => {
           {getShortString(props.description)}
         </div>
       </div>
+      <button>Delete</button>
     </div>
   );
 };
