@@ -4,21 +4,18 @@ import BookInfo from "components/BookInfo";
 import BookList from "components/BookList";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchBooks } from "store/slice";
-import { Route, Switch } from "react-router";
+import { Route } from "react-router";
 
 const Main = () => {
   const dispatch = useDispatch();
-  const currentDisplayBook = useSelector((state) => state.books.currentBookId);
   React.useEffect(() => {
     dispatch(fetchBooks());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={styles["main"]}>
-      <Switch>
-        <Route exact path="/books" component={BookList} />
-        <Route path="/books/:id" component={BookInfo} />
-      </Switch>
+      <Route path="/books" component={BookList} />
+      <Route path="/books/:id" component={BookInfo} />
     </div>
   );
 };

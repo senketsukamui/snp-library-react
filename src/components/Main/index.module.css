@@ -1,9 +1,11 @@
 .main {
-  border: solid 3px black;
+  border: solid 3px #929aab;
   border-radius: 5px;
   height: 100%;
-  width: 1500px;
-  height: 800px;
+  width: 80%;
+  height: 90%;
   margin: 0 auto;
   display: flex;
+  background-color: #f7f7f7;
+  color: #393e46;
 }
