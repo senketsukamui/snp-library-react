@@ -1,10 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { api, getRequest, postRequest } from "agent";
-import BookInfo from "components/BookInfo";
+import { api, getRequest, postRequest, deleteRequest, putRequest } from "agent";
 
 const initialState = {
   booksList: [],
-  currentBookId: 1,
+  currentBookId: "",
   modalInputState: {
     author: "",
     title: "",
@@ -35,7 +34,22 @@ export const postBook = createAsyncThunk(
 
 export const deleteBook = createAsyncThunk(
   "booksLibrary/deleteBook",
-)
+  async (bookId) => {
+    deleteRequest(api, bookId);
+    return bookId;
+  }
+);
+
+export const editBookInfo = createAsyncThunk(
+  "booksLibrary/editBookInfo",
+  async (bookInfo) => {
+    const newBookInfo = putRequest(api, bookInfo.id, bookInfo).then((json) => {
+      return json;
+    });
+
+    return newBookInfo;
+  }
+);
 
 const booksLibrary = createSlice({
   name: "booksLibrary",
@@ -50,14 +64,25 @@ const booksLibrary = createSlice({
     clearModalInputState(state, action) {
       state.modalInputState = initialState.modalInputState;
     },
+    setModalInputState(state, action) {
+      state.modalInputState = action.payload;
+    },
   },
   extraReducers: {
     [fetchBooks.fulfilled]: (state, action) => {
       state.booksList = action.payload;
     },
     [postBook.fulfilled]: (state, action) => {
-      console.log("action", action.payload);
       state.booksList.push(action.payload);
+    },
+    [deleteBook.fulfilled]: (state, action) => {
+      state.booksList = state.booksList.filter((book) => {
+        return book.id !== action.payload;
+      });
+    },
+    [editBookInfo.fulfilled]: (state, action) => {
+      const idx = state.booksList.findIndex((e) => e.id === action.payload.id);
+      state.booksList[idx] = action.payload;
     },
   },
 });
@@ -66,6 +91,7 @@ export const {
   changeCurrentBookId,
   changeModalInputState,
   clearModalInputState,
+  setModalInputState,
 } = booksLibrary.actions;
 
 export default booksLibrary;

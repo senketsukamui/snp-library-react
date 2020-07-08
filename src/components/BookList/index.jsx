@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import BookListItem from "components/BookList/BookListItem";
 import Scrollbars from "react-custom-scrollbars";
 import ModalForm from "components/ModalForm";
+import { MODAL_TYPES } from "utils/constants";
 
 const BookList = () => {
   const books = useSelector((state) => state.books.booksList);
@@ -17,7 +18,11 @@ const BookList = () => {
   ]);
   return (
     <div className={styles["booklist"]}>
-      {isModalOpen ? <ModalForm toggleModal={toggleModal} /> : ""}
+      {isModalOpen ? (
+        <ModalForm toggleModal={toggleModal} type={MODAL_TYPES.CREATE} />
+      ) : (
+        ""
+      )}
       <Scrollbars>
         <button onClick={toggleModal}>Open modal</button>
         <div className={styles["booklist-items"]}>{renderedBooks}</div>

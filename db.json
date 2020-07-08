@@ -1,20 +1,6 @@
 {
   "books": [
     {
-      "id": 1,
-      "title": "1984",
-      "author": "Orwell",
-      "description": "The story takes place in an imagined future, the year 1984, when much of the world has fallen victim to perpetual war, omnipresent government surveillance, historical negationism, and propaganda. Great Britain, known as Airstrip One, has become a province of a totalitarian superstate named Oceania that is ruled by the Party who employ the Thought Police to persecute individuality and independent thinking.[4] Big Brother, the leader of the Party, enjoys an intense cult of personality despite the fact that he may not exist. The protagonist, Winston Smith, is a diligent and skillful rank-and-file worker and Party member who secretly hates the Party and dreams of rebellion. He enters a forbidden relationship with a co-worker, Julia. ",
-      "image": "https://www.dramaticpublishing.com/media/catalog/product/cache/1/image/300x436/9df78eab33525d08d6e5fb8d27136e95/1/9/1984_cover_n15000.jpg"
-    },
-    {
-      "id": 2,
-      "title": "Witcher",
-      "author": "Anjey Sapkowski",
-      "description": "Geralt is a witcher, a man whose magic powers, enhanced by long training and a mysterious elixir, have made him a brilliant fighter and a merciless assassin. Yet he is no ordinary murderer: his targets are the multifarious monsters and vile fiends that ravage the land and attack the innocent.",
-      "image": "https://i.pinimg.com/originals/36/78/52/367852bf053a8b00496b966cd739785a.png"
-    },
-    {
       "id": 3,
       "title": "Witcher",
       "author": "Anjey Sapkowski",
@@ -22,137 +8,18 @@
       "image": "https://i.pinimg.com/originals/36/78/52/367852bf053a8b00496b966cd739785a.png"
     },
     {
-      "id": 4,
-      "title": "Witcher",
       "author": "Anjey Sapkowski",
+      "title": "Witcher 3",
       "description": "Geralt is a witcher, a man whose magic powers, enhanced by long training and a mysterious elixir, have made him a brilliant fighter and a merciless assassin. Yet he is no ordinary murderer: his targets are the multifarious monsters and vile fiends that ravage the land and attack the innocent.",
-      "image": "https://i.pinimg.com/originals/36/78/52/367852bf053a8b00496b966cd739785a.png"
+      "image": "https://i.pinimg.com/originals/36/78/52/367852bf053a8b00496b966cd739785a.png",
+      "id": 5
     },
     {
-      "id": 5,
-      "title": "Witcher",
-      "author": "Anjey Sapkowski",
-      "description": "Geralt is a witcher, a man whose magic powers, enhanced by long training and a mysterious elixir, have made him a brilliant fighter and a merciless assassin. Yet he is no ordinary murderer: his targets are the multifarious monsters and vile fiends that ravage the land and attack the innocent.",
-      "image": "https://i.pinimg.com/originals/36/78/52/367852bf053a8b00496b966cd739785a.png"
-    },
-    {
-      "id": 6,
-      "title": "Witcher",
-      "author": "Anjey Sapkowski",
-      "description": "Geralt is a witcher, a man whose magic powers, enhanced by long training and a mysterious elixir, have made him a brilliant fighter and a merciless assassin. Yet he is no ordinary murderer: his targets are the multifarious monsters and vile fiends that ravage the land and attack the innocent.",
-      "image": "https://i.pinimg.com/originals/36/78/52/367852bf053a8b00496b966cd739785a.png"
-    },
-    {
-      "id": 7,
-      "title": "Witcher",
-      "author": "Anjey Sapkowski",
-      "description": "Geralt is a witcher, a man whose magic powers, enhanced by long training and a mysterious elixir, have made him a brilliant fighter and a merciless assassin. Yet he is no ordinary murderer: his targets are the multifarious monsters and vile fiends that ravage the land and attack the innocent.",
-      "image": "https://i.pinimg.com/originals/36/78/52/367852bf053a8b00496b966cd739785a.png"
-    },
-    {
-      "author": "adfafafa",
-      "title": "adfafafadfad",
-      "description": "adfafafadfadfa",
-      "image": "fadafpadfka[fadfad",
-      "id": 10
-    },
-    {
-      "author": "adfafafa",
+      "author": "1231231asadfa21",
       "title": "adfafafadfad",
       "description": "adfafafadfadfa",
       "image": "https://i.pinimg.com/originals/36/78/52/367852bf053a8b00496b966cd739785a.png",
-      "id": 11
-    },
-    {
-      "author": "adfafafa",
-      "title": "adfafafadfad",
-      "description": "adfafafadfadfa",
-      "image": "https://i.pinimg.com/originals/36/78/52/367852bf053a8b00496b966cd739785a.png",
-      "id": 12
-    },
-    {
-      "author": "adfafafa",
-      "title": "adfafafadfad",
-      "description": "adfafafadfadfa",
-      "image": "https://i.pinimg.com/originals/36/78/52/367852bf053a8b00496b966cd739785a.png",
-      "id": 13
-    },
-    {
-      "author": "adfafafa",
-      "title": "adfafafadfad",
-      "description": "adfafafadfadfa",
-      "image": "https://i.pinimg.com/originals/36/78/52/367852bf053a8b00496b966cd739785a.png",
-      "id": 14
-    },
-    {
-      "author": "adfafafa",
-      "title": "adfafafadfad",
-      "description": "adfafafadfadfa",
-      "image": "https://i.pinimg.com/originals/36/78/52/367852bf053a8b00496b966cd739785a.png",
-      "id": 15
-    },
-    {
-      "author": "adfafafa",
-      "title": "adfafafadfad",
-      "description": "adfafafadfadfa",
-      "image": "https://i.pinimg.com/originals/36/78/52/367852bf053a8b00496b966cd739785a.png",
-      "id": 16
-    },
-    {
-      "author": "fadfdfa",
-      "title": "adfadfa",
-      "description": "adfadfad",
-      "image": "adfadfa",
-      "id": 17
-    },
-    {
-      "author": "addafadf",
-      "title": "adfadfafd",
-      "description": "adfadfadf",
-      "image": "sdfsdfds",
-      "id": 18
-    },
-    {
-      "author": "adfadfda",
-      "title": "dsfafa",
-      "description": "adfafa",
-      "image": "asdfadfdafa",
-      "id": 19
-    },
-    {
-      "author": "adfaddaf",
-      "title": "sadfdafda",
-      "description": "asdfadfda",
-      "image": "asdfadfadf",
-      "id": 20
-    },
-    {
-      "author": "ffff",
-      "title": "fffff",
-      "description": "fffff",
-      "image": "ffffff",
-      "id": 21
-    },
-    {
-      "author": "adfadfafdfad",
-      "title": "asdfsfadafdafd",
-      "description": "adfafadfadafd",
-      "image": "adafdsafdsfadadf",
-      "id": 22
-    },
-    {
-      "author": "11111111",
-      "title": "11111111111111",
-      "description": "11111111111",
-      "image": "111111111111",
-      "id": 23
-    },
-    {
-      "author": "adfadfadfa",
-      "title": "adfda231",
-      "description": "213131431",
-      "image": "314141431",
-      "id": 24
+      "id": 6
     }
   ]
 }

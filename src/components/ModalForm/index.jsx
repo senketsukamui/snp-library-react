@@ -5,8 +5,11 @@ import {
   changeModalInputState,
   postBook,
   clearModalInputState,
+  setModalInputState,
+  editBookInfo,
 } from "store/slice";
 import { useDispatch, useSelector } from "react-redux";
+import { MODAL_TYPES } from "utils/constants";
 
 const ModalForm = (props) => {
   const dispatch = useDispatch();
@@ -24,10 +27,15 @@ const ModalForm = (props) => {
   );
 
   const formState = useSelector((state) => state.books.modalInputState);
+  const { author, title, description, image } = formState;
   const handleFormSubmit = React.useCallback(
     (e) => {
       e.preventDefault();
-      dispatch(postBook(formState));
+      if (props.type === MODAL_TYPES.CREATE) {
+        dispatch(postBook(formState));
+      } else if (props.type === MODAL_TYPES.EDIT) {
+        dispatch(editBookInfo(formState));
+      }
       props.toggleModal();
       dispatch(clearModalInputState());
     },
@@ -45,6 +53,7 @@ const ModalForm = (props) => {
             type="text"
             id="author"
             onChange={handleInputChange}
+            value={author}
           />
           <label htmlFor="title">Title</label>
           <input
@@ -52,6 +61,7 @@ const ModalForm = (props) => {
             type="text"
             id="title"
             onChange={handleInputChange}
+            value={title}
           />
           <label htmlFor="description">Description</label>
           <input
@@ -59,6 +69,7 @@ const ModalForm = (props) => {
             type="text"
             id="description"
             onChange={handleInputChange}
+            value={description}
           />
           <label htmlFor="image">Image</label>
           <input
@@ -66,6 +77,7 @@ const ModalForm = (props) => {
             type="text"
             id="image"
             onChange={handleInputChange}
+            value={image}
           />
           <button type="submit" className={styles["modal-submit"]}>
             Submit

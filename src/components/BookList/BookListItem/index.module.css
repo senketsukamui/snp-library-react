@@ -1,10 +1,14 @@
 .booklist-item {
+  display: flex;
+}
+
+.booklist-content {
   font-family: "gotham";
   display: flex;
   cursor: pointer;
 }
 
-.booklist-item:not(:last-child) {
+.booklist-content:not(:last-child) {
   padding-bottom: 15px;
 }
 
