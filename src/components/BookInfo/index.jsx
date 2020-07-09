@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import default_book from "assets/images/default_book.jpg";
 import { isValidImage } from "utils";
 
-const BookInfo = () => {
+const BookInfo = (props) => {
   const selectedBookInfo = useSelector(selectBookById);
   const { title, author, description, image } =
     selectedBookInfo !== undefined && selectedBookInfo;

@@ -22,7 +22,7 @@ export const postRequest = (url, body = {}) => {
 };
 
 export const deleteRequest = (url, id) => {
-  return fetch(url.concat(`/${id}`), {
+  return fetch(url + `/${id}`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
   }).catch((error) => {
@@ -31,11 +31,17 @@ export const deleteRequest = (url, id) => {
 };
 
 export const putRequest = (url, id, body = {}) => {
-  return fetch(url.concat(`/${id}`), {
+  return fetch(url + `/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   }).then((response) => {
+    return response.json();
+  });
+};
+
+export const getFilteredTodos = (url, string, body = {}) => {
+  return fetch(url + `?q=${string}`).then((response) => {
     return response.json();
   });
 };

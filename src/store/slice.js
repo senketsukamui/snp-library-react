@@ -1,5 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { api, getRequest, postRequest, deleteRequest, putRequest } from "agent";
+import {
+  api,
+  getRequest,
+  getFilteredTodos,
+  postRequest,
+  deleteRequest,
+  putRequest,
+} from "agent";
 
 const initialState = {
   booksList: [],
@@ -10,6 +17,8 @@ const initialState = {
     description: "",
     image: "",
   },
+  currentFilterString: "",
+  filteredBooks: [],
 };
 
 export const fetchBooks = createAsyncThunk(
@@ -51,6 +60,18 @@ export const editBookInfo = createAsyncThunk(
   }
 );
 
+export const fetchTodosWithFilter = createAsyncThunk(
+  "booksLibrary/fetchTodosWithFilter",
+  async (filterString) => {
+    console.log(filterString);
+    const filteredBooks = getFilteredTodos(api, filterString).then((json) => {
+      return json;
+    });
+
+    return filteredBooks;
+  }
+);
+
 const booksLibrary = createSlice({
   name: "booksLibrary",
   initialState,
@@ -66,6 +87,9 @@ const booksLibrary = createSlice({
     },
     setModalInputState(state, action) {
       state.modalInputState = action.payload;
+    },
+    changeCurrentFilterString(state, action) {
+      state.currentFilterString = action.payload;
     },
   },
   extraReducers: {
@@ -84,6 +108,9 @@ const booksLibrary = createSlice({
       const idx = state.booksList.findIndex((e) => e.id === action.payload.id);
       state.booksList[idx] = action.payload;
     },
+    [fetchTodosWithFilter.fulfilled]: (state, action) => {
+      state.booksList = action.payload;
+    },
   },
 });
 
@@ -92,6 +119,7 @@ export const {
   changeModalInputState,
   clearModalInputState,
   setModalInputState,
+  changeCurrentFilterString,
 } = booksLibrary.actions;
 
 export default booksLibrary;

@@ -5,7 +5,6 @@ import {
   changeModalInputState,
   postBook,
   clearModalInputState,
-  setModalInputState,
   editBookInfo,
 } from "store/slice";
 import { useDispatch, useSelector } from "react-redux";
@@ -39,7 +38,7 @@ const ModalForm = (props) => {
       props.toggleModal();
       dispatch(clearModalInputState());
     },
-    [dispatch, formState]
+    [dispatch, formState, props]
   );
 
   return createPortal(

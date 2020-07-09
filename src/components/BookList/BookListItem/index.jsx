@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./index.module.css";
 import { getShortString, isValidImage } from "utils";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   changeCurrentBookId,
   deleteBook,
@@ -11,6 +11,8 @@ import { useHistory } from "react-router-dom";
 import default_book from "assets/images/default_book.jpg";
 import ModalForm from "components/ModalForm";
 import { MODAL_TYPES } from "utils/constants";
+import edit from "assets/images/edit.svg";
+import trash from "assets/images/trash.svg";
 
 const BookListItem = (props) => {
   const dispatch = useDispatch();
@@ -20,25 +22,26 @@ const BookListItem = (props) => {
   const handleItemClick = React.useCallback(() => {
     dispatch(changeCurrentBookId(props.id));
     history.push(`/books/${props.id}`);
-  }, [dispatch.history, props.id]);
+  }, [dispatch, history, props.id]);
 
   const handleItemDelete = React.useCallback(() => {
     dispatch(deleteBook(props.id));
     history.push("/books");
-  }, [dispatch, props.id]);
+  }, [dispatch, history, props.id]);
 
   const handleItemEdit = React.useCallback(() => {
+    const { author, title, description, image, id } = props;
     dispatch(
       setModalInputState({
-        author: props.author,
-        title: props.title,
-        description: props.description,
-        image: props.image,
-        id: props.id,
+        author: author,
+        title: title,
+        description: description,
+        image: image,
+        id: id,
       })
     );
     setEditModalState(true);
-  });
+  }, [dispatch, props]);
   const toggleEditModal = React.useCallback(() => {
     setEditModalState(!isEditModalOpen);
   }, [isEditModalOpen]);
@@ -60,8 +63,19 @@ const BookListItem = (props) => {
           </div>
         </div>
       </div>
-      <button onClick={handleItemEdit}>Edit</button>
-      <button onClick={handleItemDelete}>Delete</button>
+      <div className={styles["buttons"]}>
+        <button onClick={handleItemEdit} className={styles["edit-button"]}>
+          <img src={edit} alt="Edit button" className={styles["edit-icon"]} />
+        </button>
+
+        <button onClick={handleItemDelete} className={styles["delete-button"]}>
+          <img
+            src={trash}
+            alt="Delete button"
+            className={styles["delete-icon"]}
+          />
+        </button>
+      </div>
       {isEditModalOpen ? (
         <ModalForm
           type={MODAL_TYPES.EDIT}
