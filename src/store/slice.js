@@ -11,14 +11,13 @@ import {
 const initialState = {
   booksList: [],
   currentBookId: "",
+  isBooksLoading: false,
   modalInputState: {
     author: "",
     title: "",
     description: "",
     image: "",
   },
-  currentFilterString: "",
-  filteredBooks: [],
 };
 
 export const fetchBooks = createAsyncThunk(
@@ -63,7 +62,6 @@ export const editBookInfo = createAsyncThunk(
 export const fetchTodosWithFilter = createAsyncThunk(
   "booksLibrary/fetchTodosWithFilter",
   async (filterString) => {
-    console.log(filterString);
     const filteredBooks = getFilteredTodos(api, filterString).then((json) => {
       return json;
     });
@@ -88,13 +86,14 @@ const booksLibrary = createSlice({
     setModalInputState(state, action) {
       state.modalInputState = action.payload;
     },
-    changeCurrentFilterString(state, action) {
-      state.currentFilterString = action.payload;
-    },
   },
   extraReducers: {
     [fetchBooks.fulfilled]: (state, action) => {
       state.booksList = action.payload;
+      state.isBooksLoading = false;
+    },
+    [fetchBooks.pending]: (state, action) => {
+      state.isBooksLoading = true;
     },
     [postBook.fulfilled]: (state, action) => {
       state.booksList.push(action.payload);
@@ -110,6 +109,10 @@ const booksLibrary = createSlice({
     },
     [fetchTodosWithFilter.fulfilled]: (state, action) => {
       state.booksList = action.payload;
+      state.isBooksLoading = false;
+    },
+    [fetchTodosWithFilter.pending]: (state, action) => {
+      state.isBooksLoading = true;
     },
   },
 });
@@ -119,7 +122,6 @@ export const {
   changeModalInputState,
   clearModalInputState,
   setModalInputState,
-  changeCurrentFilterString,
 } = booksLibrary.actions;
 
 export default booksLibrary;

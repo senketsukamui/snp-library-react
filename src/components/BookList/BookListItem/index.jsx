@@ -89,4 +89,4 @@ const BookListItem = (props) => {
   );
 };
 
-export default BookListItem;
+export default React.memo(BookListItem);
