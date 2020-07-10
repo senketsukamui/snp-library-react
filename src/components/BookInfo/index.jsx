@@ -10,6 +10,7 @@ import { useHistory } from "react-router";
 
 const BookInfo = (props) => {
   const dispatch = useDispatch();
+
   const history = useHistory();
 
   React.useEffect(() => {
@@ -17,19 +18,29 @@ const BookInfo = (props) => {
   }, [dispatch, props.match.params.id]);
 
   const selectedBookInfo = useSelector(selectBookById);
+
   const isBooksLoading = useSelector((state) => state.books.isBooksLoading);
+
   if (isBooksLoading) {
     return <Loader />;
   }
+
   const { title, author, description, image } =
     selectedBookInfo !== undefined && selectedBookInfo;
 
   const handleCloseClick = () => {
     history.push("/books");
   };
+
   if (selectedBookInfo === undefined) {
-    return <div className={styles["error"]}>There is no book with that id. Try to choose another or create a new one.</div>;
+    return (
+      <div className={styles["error"]}>
+        There is no book with that id. Try to choose another or create a new
+        one.
+      </div>
+    );
   }
+  
   return (
     <div className={styles["book-info"]}>
       <div className={styles["information"]}>
@@ -51,4 +62,4 @@ const BookInfo = (props) => {
   );
 };
 
-export default BookInfo;
+export default React.memo(BookInfo);

@@ -26,7 +26,9 @@ const ModalForm = (props) => {
   );
 
   const formState = useSelector((state) => state.books.modalInputState);
+
   const { author, title, description, image } = formState;
+  
   const handleFormSubmit = React.useCallback(
     (e) => {
       e.preventDefault();

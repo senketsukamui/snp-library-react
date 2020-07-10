@@ -16,7 +16,9 @@ import trash from "assets/images/trash.svg";
 
 const BookListItem = (props) => {
   const dispatch = useDispatch();
+
   const history = useHistory();
+
   const [isEditModalOpen, setEditModalState] = React.useState(false);
 
   const handleItemClick = React.useCallback(() => {
@@ -42,9 +44,11 @@ const BookListItem = (props) => {
     );
     setEditModalState(true);
   }, [dispatch, props]);
+
   const toggleEditModal = React.useCallback(() => {
     setEditModalState(!isEditModalOpen);
   }, [isEditModalOpen]);
+  
   return (
     <div className={styles["booklist-item"]}>
       <div className={styles["booklist-content"]} onClick={handleItemClick}>
