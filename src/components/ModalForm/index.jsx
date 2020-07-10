@@ -28,7 +28,7 @@ const ModalForm = (props) => {
   const formState = useSelector((state) => state.books.modalInputState);
 
   const { author, title, description, image } = formState;
-  
+
   const handleFormSubmit = React.useCallback(
     (e) => {
       e.preventDefault();
@@ -42,6 +42,11 @@ const ModalForm = (props) => {
     },
     [dispatch, formState, props]
   );
+
+  const toggleEditModal = React.useCallback(() => {
+    props.toggleModal();
+    dispatch(clearModalInputState());
+  }, [dispatch, props]);
 
   return createPortal(
     <div className={styles["modal-wrapper"]}>
@@ -89,7 +94,14 @@ const ModalForm = (props) => {
           <button type="submit" className={styles["modal-submit"]}>
             Submit
           </button>
-          <button onClick={props.toggleModal} className={styles["modal-close"]}>
+          <button
+            onClick={
+              props.type === MODAL_TYPES.EDIT
+                ? toggleEditModal
+                : props.toggleModal
+            }
+            className={styles["modal-close"]}
+          >
             Close
           </button>
         </form>
