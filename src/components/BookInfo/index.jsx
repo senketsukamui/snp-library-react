@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import default_book from "assets/images/default_book.jpg";
 import { isValidImage } from "utils";
 import { changeCurrentBookId } from "store/slice";
+import Loader from "components/Loader";
 
 const BookInfo = (props) => {
   const dispatch = useDispatch();
@@ -12,12 +13,12 @@ const BookInfo = (props) => {
   React.useEffect(() => {
     dispatch(changeCurrentBookId(props.match.params.id));
   }, [dispatch, props.match.params.id]);
-  
+
   const selectedBookInfo = useSelector(selectBookById);
 
   const isBooksLoading = useSelector((state) => state.books.isBooksLoading);
   if (isBooksLoading) {
-    return <div>Loading</div>;
+    return <Loader />;
   }
   const { title, author, description, image } =
     selectedBookInfo !== undefined && selectedBookInfo;
