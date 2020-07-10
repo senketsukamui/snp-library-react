@@ -1,9 +1,8 @@
 .booklist-items {
   padding: 1rem;
-  padding-right: 3rem;
+  margin-right: 1rem;
   display: flex;
   flex-direction: column;
-
 }
 
 .booklist {
@@ -11,4 +10,45 @@
   flex-direction: column;
   width: 25%;
   border-right: 3px solid #929aab;
+}
+
+.booklist-input {
+  font-family: "gotham";
+  background-color: #ffffff;
+  height: 30px;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+.booklist-search {
+  font-family: "gotham";
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-left: 10px;
+  padding: 6px;
+  transition: background-color 0.2s;
+  transition: color 0.2s;
+}
+
+.booklist-search:hover {
+  background-color: #929aab;
+  color: #f7f7f7;
+}
+
+.booklist-create {
+  font-family: "gotham";
+  font-size: 1.2rem;
+  padding: 6px;
+  cursor: pointer;
+  height: 30px;
+  border-radius: 10px;
+  margin: 5px;
+  transition: background-color 0.2s;
+  transition: color 0.2s;
+}
+
+.booklist-create:hover {
+  background-color: #929aab;
+  color: #f7f7f7;
 }

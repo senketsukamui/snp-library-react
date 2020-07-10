@@ -63,15 +63,21 @@ const BookList = (props) => {
         ""
       )}
       <Scrollbars>
+        <button className={styles["booklist-create"]} onClick={toggleModal}>
+          Create new book
+        </button>
         <form onSubmit={handleFormSubmit} onBlur={handleFormSubmit}>
           <input
             type="text"
             onChange={handleInputChange}
             value={currentFilter}
+            className={styles["booklist-input"]}
           />
-          <button type="submit">Search</button>
+          <button className={styles["booklist-search"]} type="submit">
+            Search
+          </button>
         </form>
-        <button onClick={toggleModal}>Open modal</button>
+
         <div className={styles["booklist-items"]}>{renderedBooks}</div>
       </Scrollbars>
     </div>

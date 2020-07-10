@@ -53,6 +53,8 @@ const ModalForm = (props) => {
             id="author"
             onChange={handleInputChange}
             value={author}
+            maxLength={100}
+            required
           />
           <label htmlFor="title">Title</label>
           <input
@@ -61,6 +63,8 @@ const ModalForm = (props) => {
             id="title"
             onChange={handleInputChange}
             value={title}
+            maxLength={150}
+            required
           />
           <label htmlFor="description">Description</label>
           <input
@@ -69,6 +73,8 @@ const ModalForm = (props) => {
             id="description"
             onChange={handleInputChange}
             value={description}
+            maxLength={1350}
+            required
           />
           <label htmlFor="image">Image</label>
           <input

@@ -1,14 +1,10 @@
-/* .info {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-size: 2rem;
-} */
-
 .book-info {
   font-family: "gotham";
   width: 75%;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .title {
@@ -16,15 +12,50 @@
 }
 
 .author {
-  font-size: 2.6rem;
+  font-size: 2.2rem;
 }
 
 .description {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 .image {
   width: 300px;
   height: 300px;
-  
+  margin-left: 5rem;
+  margin-bottom: 0.7rem;
+}
+
+.footer {
+  display: flex;
+  align-self: center;
+}
+
+.close {
+  font-size: 2rem;
+  cursor: pointer;
+  color: #393e46;
+  border-radius: 10px;
+  transition: background-color 0.2s;
+  transition: color 0.2s;
+}
+
+.information > div {
+  margin-bottom: 0.8rem;
+}
+
+.close:hover {
+  background-color: #393e46;
+  color: #f7f7f7;
+}
+
+.error {
+  width: 60%;
+  font-family: "gotham";
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  text-align: center;
+  margin: 0 auto;
 }

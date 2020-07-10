@@ -1,25 +1,102 @@
 {
   "books": [
     {
-      "author": "Anjey Sapkowskiiii",
+      "author": "Anjey Sapkowski",
       "title": "Witcher",
       "description": "Geralt is a witcher, a man whose magic powers, enhanced by long training and a mysterious elixir, have made him a brilliant fighter and a merciless assassin. Yet he is no ordinary murderer: his targets are the multifarious monsters and vile fiends that ravage the land and attack the innocent.",
       "image": "https://i.pinimg.com/originals/36/78/52/367852bf053a8b00496b966cd739785a.png",
       "id": 3
     },
     {
-      "author": "Anjey Sapkowski",
-      "title": "Witcher 3",
-      "description": "Geralt is a witcher, a man whose magic powers, enhanced by long training and a mysterious elixir, have made him a brilliant fighter and a merciless assassin. Yet he is no ordinary murderer: his targets are the multifarious monsters and vile fiends that ravage the land and attack the innocent.",
-      "image": "https://i.pinimg.com/originals/36/78/52/367852bf053a8b00496b966cd739785a.png",
-      "id": 5
+      "author": "Haruki Murakami",
+      "title": "Pinball, 1973",
+      "description": "The plot centers on the narrator's brief but intense obsession with pinball, his life as a freelance translator, and his later efforts to reunite with the old pinball machine that he used to play. He describes living with a pair of identical unnamed female twins, who mysteriously appear in his apartment one morning, and disappear at the end of the book. Interspersed with the narrative are his memories of the Japanese student movement, and of his old girlfriend Naoko.",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/9135N4tFM1L.jpg",
+      "id": 6
     },
     {
-      "author": "Me and you",
-      "title": "Good",
-      "description": "Good",
-      "image": "No",
-      "id": 6
+      "author": "Haruki Murakami",
+      "title": "1Q84",
+      "description": "Awesome book",
+      "image": "https://66.img.avito.st/640x480/8561051866.jpg",
+      "id": 7
+    },
+    {
+      "author": "Haruki Murakami",
+      "title": "Listen to the wind",
+      "description": "First book of trilogy",
+      "image": "",
+      "id": 8
+    },
+    {
+      "author": "Haruki Murakami",
+      "title": "A Wild Sheep Chase",
+      "description": "His life was like a recurring nightmare: a train to nowhere. But an ordinary life has a way of taking an extraordinary turn. Add a girl whose ears are so exquisite that, when uncovered, they improve sex a thousand-fold, a runaway friend, a right-wing politico, an ovine-obsessed professor and a manic-depressive in a sheep outfit, implicate them in a hunt for a sheep, that may or may not be running the world, and the upshot is another singular masterpiece from Japan's finest novelist.",
+      "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327908774l/11298.jpg",
+      "id": 9
+    },
+    {
+      "author": "Haruki Murakami",
+      "title": "Dance Dance Dance",
+      "description": "High-class call girls billed to Mastercard. A psychic 13-year-old dropout with a passion for Talking Heads. A hunky matinee idol doomed to play dentists and teachers. A one-armed beach-combing poet, an uptight hotel clerk and one very bemused narrator caught in the web of advanced capitalist mayhem. Combine this offbeat cast of characters with Murakami's idiosyncratic prose and out comes Dance Dance Dance.",
+      "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1514582521l/17800._SY475_.jpg",
+      "id": 10
+    },
+    {
+      "author": "Haruki Murakami",
+      "title": "Kafka on the shore",
+      "description": "Kafka on the Shore, a tour de force of metaphysical reality, is powered by two remarkable characters: a teenage boy, Kafka Tamura, who runs away from home either to escape a gruesome oedipal prophecy or to search for his long-missing mother and sister; and an aging simpleton called Nakata, who never recovered from a wartime affliction and now is drawn toward Kafka for reasons that, like the most basic activities of daily life, he cannot fathom. Their odyssey, as mysterious to them as it is to us, is enriched throughout by vivid accomplices and mesmerizing events. Cats and people carry on conversations, a ghostlike pimp employs a Hegel-quoting prostitute, a forest harbors soldiers apparently unaged since World War II, and rainstorms of fish (and worse) fall from the sky. There is a brutal murder, with the identity of both victim and perpetrator a riddle—yet this, along with everything else, is eventually answered, just as the entwined destinies of Kafka and Nakata are gradually revealed, with one escaping his fate entirely and the other given a fresh start on his own.",
+      "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1429638085l/4929.jpg",
+      "id": 11
+    },
+    {
+      "author": "Haruki Murakami",
+      "title": "Norwegian Wood",
+      "description": "Toru, a quiet and preternaturally serious young college student in Tokyo, is devoted to Naoko, a beautiful and introspective young woman, but their mutual passion is marked by the tragic death of their best friend years before. Toru begins to adapt to campus life and the loneliness and isolation he faces there, but Naoko finds the pressures and responsibilities of life unbearable. As she retreats further into her own world, Toru finds himself reaching out to others and drawn to a fiercely independent and sexually liberated young woman.  A magnificent blending of the music, the mood, and the ethos that was the sixties with the story of one college student's romantic coming of age, Norwegian Wood brilliantly recaptures a young man's first, hopeless, and heroic love.",
+      "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1386924361l/11297.jpg",
+      "id": 12
+    },
+    {
+      "author": "Haruki Murakami",
+      "title": "Killing Commendatore ",
+      "description": " Killing Commendatore Rate this book 1 of 5 stars 2 of 5 stars 3 of 5 stars 4 of 5 stars 5 of 5 stars Killing Commendatore (Kishidancho Goroshi #1-2) by Haruki Murakami, Philip Gabriel (Translator) , Ted Goossen (Translator) 3.89  ·  Rating details ·  29,367 ratings  ·  3,621 reviews The epic new novel from the internationally acclaimed and best-selling author of 1Q84  In Killing Commendatore, a thirty-something portrait painter in Tokyo is abandoned by his wife and finds himself holed up in the mountain home of a famous artist, Tomohiko Amada. When he discovers a previously unseen painting in the attic, he unintentionally opens a circle of mysterious circumstances. To close it, he must complete a journey that involves a mysterious ringing bell, a two-foot-high physical manifestation of an Idea, a dapper businessman who lives across the valley, a precocious thirteen-year-old girl, a Nazi assassination attempt during World War II in Vienna, a pit in the woods behind the artist’s home, and an underworld haunted by Double Metaphors. A tour de force of love and loneliness, war and art—as well as a loving homage to The Great Gatsby—Killing Commendatore is a stunning work of imagination from one of our greatest writers.",
+      "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1527854255l/38820047.jpg",
+      "id": 13
+    },
+    {
+      "author": "Howard Phillips Lovecraft",
+      "title": "At the Mountains of Madness and Other Tales of Terror",
+      "description": "A complete short novel, AT THE MOUNTAINS OF MADNESS is a tale of terror unilke any other. The Barren, windswept interior of the Antarctic plateau was lifeless--or so the expedition from Miskatonic University thought. Then they found the strange fossils of unheard-of creatures...and the carved stones tens of millions of years old...and, finally, the mind-blasting terror of the City of the Old Ones. Three additional strange tales, written as only H.P. Lovecraft can write, are also included in this macabre collection of the strange and the weird.",
+      "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1226634493l/32769.jpg",
+      "id": 14
+    },
+    {
+      "author": "Kentaro Miura",
+      "title": "Berserk",
+      "description": "His name is Guts, the Black Swordsman, a feared warrior spoken of only in whispers. Bearer of a gigantic sword, an iron hand, and the scars of countless battles and tortures, his flesh is also indelibly marked with The Brand, an unholy symbol that draws the forces of darkness to him and dooms him as their sacrifice. But Guts won't take his fate lying down; he'll cut a crimson swath of carnage through the ranks of the damned - and anyone else foolish enough to oppose him! Accompanied by Puck the Elf, more an annoyance than a companion, Guts relentlessly follows a dark, bloodstained path that leads only to death...or vengeance.",
+      "image": "https://m.media-amazon.com/images/I/5197DEKOybL.jpg",
+      "id": 15
+    },
+    {
+      "author": "Inio Asano",
+      "title": "Oyasumi Punpun",
+      "description": "Punpun is an ordinary young boy growing up in Japan whose age of innocence has reached its end after his father is arrested for spousal abuse and putting his mother in the hospital. With his uncle looking after him, Punpun grows into adulthood facing a series of events which change him, for better or worse, forcing him to contemplate just what it means to be an adult.",
+      "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1389006663l/20451634.jpg",
+      "id": 16
+    },
+    {
+      "author": "Ludwig Wittgenstein",
+      "title": "Philosophical Investigations",
+      "description": "Philosophical Investigations is divided into two parts, consisting of what Wittgenstein calls, in the preface, Bemerkungen, translated by Anscombe as \"remarks\".[1] In the first part, the remarks are rarely more than a paragraph long and are numbered sequentially by paragraph. In the preface, Wittgenstein describes his failure to synthesize his points into a unified work. Due to this failure, he says that the book's structure \"compels us to travel over a wide field of thought criss-cross in every direction.\"[2] Wittgenstein then goes on to describe his remarks in the first part as \"a number of sketches of landscapes which were made in the course of these long and involved journeyings.\"",
+      "image": "https://upload.wikimedia.org/wikipedia/en/thumb/5/57/Philosophical_Investigations%2C_first_English_edition.jpg/220px-Philosophical_Investigations%2C_first_English_edition.jpg",
+      "id": 17
+    },
+    {
+      "author": "Oldos Hucksley",
+      "title": "Brave New World",
+      "description": "This fantasy of the future is one of Aldous Huxley’s best-known books. lts impact on the modern world has been considerable. Abandoning his mordant criticism of modern men and morals, the author switches to the future and shows us life as he conceives it may be some hundreds of years hence. Written in the thirties when - whatever the immediate outlook may have been - people believed that ultimately all would be for the best in the best of all possible worlds, this novel is a warning against such optimism. With irrepressible wit and raillery, Huxley satirizes the idea of progress put forward by the scientists and philosophers; and his world of test-tube babies and \"feelies\" is uncomfortably closer now than it was when the book was first published. Подробнее на livelib.ru: https://www.livelib.ru/book/1000735871-brave-new-world-aldous-huxley",
+      "image": "https://s1.livelib.ru/boocover/1000735871/o/2e66/Aldous_Huxley__Brave_New_World.jpeg",
+      "id": 18
     }
   ]
 }

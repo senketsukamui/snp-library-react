@@ -56,10 +56,14 @@ const BookListItem = (props) => {
           />
         </div>
         <div className={styles["information"]}>
-          <div className={styles["title"]}>{props.title}</div>
-          <div className={styles["author"]}>{props.author}</div>
+          <div className={styles["title"]}>
+            {getShortString(30, props.title)}
+          </div>
+          <div className={styles["author"]}>
+            {getShortString(25, props.author)}
+          </div>
           <div className={styles["description"]}>
-            {getShortString(props.description)}
+            {getShortString(40, props.description)}
           </div>
         </div>
       </div>

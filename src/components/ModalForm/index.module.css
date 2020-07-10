@@ -51,4 +51,12 @@
   color: #393e46;
   padding: 5px;
   cursor: pointer;
+  transition: background-color 0.2s;
+  transition: color 0.2s;
+}
+
+.modal-close:hover,
+.modal-submit:hover {
+  background-color: #393e46;
+  color: #eeeeee;
 }

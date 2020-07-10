@@ -1,6 +1,14 @@
 .booklist-item {
   display: flex;
   justify-content: space-between;
+  transition: background-color 0.2s;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+.booklist-item:hover {
+  background-color: #929aab;
+  color: #f7f7f7;
 }
 
 .booklist-content {
@@ -10,7 +18,7 @@
 }
 
 .booklist-content:not(:last-child) {
-  padding-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .book-logo {
@@ -22,6 +30,12 @@
 
 .information {
   padding-left: 7px;
+}
+
+.image {
+  display: flex;
+  align-self: center;
+  flex-direction: column;
 }
 
 .title,
@@ -48,4 +62,10 @@
   height: 20px;
   background-size: 100% 100%;
   cursor: pointer;
+  opacity: 0.7;
+}
+
+.edit-icon:hover,
+.delete-icon:hover {
+  opacity: 1;
 }
