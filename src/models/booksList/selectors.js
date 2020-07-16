@@ -5,6 +5,4 @@ export const selectBookById = createSelector(
   ({ id, array }) => array.find((e) => e.id === Number(id))
 );
 
-export const isBooksLoadingSelector = createSelector(
-  (state) => state.books.isBooksLoading
-);
+export const isBooksLoadingSelector = (state) => state.books.isBooksLoading;

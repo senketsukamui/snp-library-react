@@ -30,9 +30,10 @@ const BookList = (props) => {
 
   const books = useSelector((state) => state.books.booksList);
 
-  const toggleModal = React.useCallback(() => setModalOpen(!isModalOpen), [
-    isModalOpen,
-  ]);
+  const handleToggleModal = React.useCallback(
+    () => setModalOpen(!isModalOpen),
+    [isModalOpen]
+  );
 
   const handleInputChange = React.useCallback((e) => {
     changeCurrentFilter(e.target.value);
@@ -58,12 +59,18 @@ const BookList = (props) => {
   return (
     <div className={styles["booklist"]}>
       {isModalOpen ? (
-        <ModalForm toggleModal={toggleModal} type={MODAL_TYPES.CREATE} />
+        <ModalForm
+          onToggleModal={handleToggleModal}
+          type={MODAL_TYPES.CREATE}
+        />
       ) : (
         ""
       )}
       <Scrollbars>
-        <button className={styles["booklist-create"]} onClick={toggleModal}>
+        <button
+          className={styles["booklist-create"]}
+          onClick={handleToggleModal}
+        >
           Create new book
         </button>
         <form onSubmit={handleFormSubmit} onBlur={handleFormSubmit}>

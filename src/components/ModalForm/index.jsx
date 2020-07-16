@@ -37,7 +37,7 @@ const ModalForm = (props) => {
       } else if (props.type === MODAL_TYPES.EDIT) {
         dispatch(editBookInfo(formState));
       }
-      props.toggleModal();
+      props.onToggleModal();
       dispatch(clearModalInputState());
     },
     [dispatch, formState, props]
@@ -98,7 +98,7 @@ const ModalForm = (props) => {
             onClick={
               props.type === MODAL_TYPES.EDIT
                 ? toggleEditModal
-                : props.toggleModal
+                : props.onToggleModal
             }
             className={styles["modal-close"]}
           >
