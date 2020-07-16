@@ -52,9 +52,10 @@ const BookList = (props) => {
     [dispatch, currentFilter, history]
   );
 
-  const renderedBooks = books.map((e) => {
-    return <BookListItem {...e} key={e.id} />;
-  });
+  const renderedBooks = React.useMemo(
+    () => books.map((book) => <BookListItem {...book} key={book.id} />),
+    [books]
+  );
 
   return (
     <div className={styles["booklist"]}>
