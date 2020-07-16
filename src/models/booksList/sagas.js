@@ -45,7 +45,13 @@ function* postBookEffect(action) {
 
 function* editBookEffect(action) {
   try {
-    const newBookInfo = yield call(putRequest, api, action.payload);
+    const newBookInfo = yield call(
+      putRequest,
+      api,
+      action.payload.id,
+      action.payload
+    );
+    console.log(newBookInfo);
     yield put(editBookSuccess(newBookInfo));
   } catch (error) {
     yield put(editBookFailed());

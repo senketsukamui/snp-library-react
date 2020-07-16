@@ -1,10 +1,12 @@
 export const getRequest = (url) => {
   return fetch(url)
     .then((response) => {
+      console.log(response);
+      if (!response.ok) throw new Error();
       return response.json();
     })
     .catch((err) => {
-      console.error(err);
+      throw new Error(err);
     });
 };
 
@@ -14,10 +16,8 @@ export const postRequest = (url, body = {}) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   }).then((response) => {
-    if (response.ok) {
-      return response.json();
-    }
-    console.error("Error");
+    if (!response.ok) throw new Error();
+    return response.json();
   });
 };
 
@@ -36,12 +36,15 @@ export const putRequest = (url, id, body = {}) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   }).then((response) => {
+    console.log(response);
+    if (!response.ok) throw new Error();
     return response.json();
   });
 };
 
 export const getFilteredTodos = (url, string, body = {}) => {
   return fetch(url + `?q=${string}`).then((response) => {
+    if (!response.ok) throw new Error();
     return response.json();
   });
 };

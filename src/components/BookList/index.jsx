@@ -31,7 +31,6 @@ const BookList = (props) => {
   }, [dispatch, props.location.search]);
 
   const books = useSelector((state) => state.books.booksList);
-
   const handleToggleModal = React.useCallback(
     () => setModalOpen(!isModalOpen),
     [isModalOpen]

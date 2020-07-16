@@ -22,7 +22,9 @@ const booksLibrary = createSlice({
       state.isBooksLoading = false;
     },
     fetchBooksFailed(state) {
+      state.booksList = [];
       state.error = true;
+      state.isBooksLoading = false;
     },
     postBookStart(state) {
       state.isBooksLoading = true;
@@ -33,6 +35,7 @@ const booksLibrary = createSlice({
     },
     postBookFailed(state) {
       state.error = false;
+      state.isBooksLoading = false;
     },
     deleteBookStart(state, { payload }) {
       state.isBooksLoading = true;
@@ -45,6 +48,7 @@ const booksLibrary = createSlice({
     },
     deleteBookFailed(state) {
       state.error = true;
+      state.isBooksLoading = false;
     },
     editBookStart(state) {
       state.isBooksLoading = true;
@@ -56,6 +60,7 @@ const booksLibrary = createSlice({
     },
     editBookFailed(state) {
       state.error = true;
+      state.isBooksLoading = false;
     },
     fetchBooksWithFilterStart(state) {
       state.isBooksLoading = true;
@@ -66,6 +71,7 @@ const booksLibrary = createSlice({
     },
     fetchBooksWithFilterFailed(state) {
       state.error = true;
+      state.isBooksLoading = false;
     },
   },
 });

@@ -1,13 +1,16 @@
 import React from "react";
 import { createPortal } from "react-dom";
 import styles from "./index.module.css";
+import {
+  changeModalInputState,
+  clearModalInputState,
+} from "models/modal/slice";
 import { actions } from "models/booksList/slice";
-import { postBookStart, editBookStart } from "models/booksList/slice";
 import { useDispatch, useSelector } from "react-redux";
 import { MODAL_TYPES } from "utils/constants";
 import { modalFieldsSelector } from "models/modal/selectors";
 
-const { changeModalInputState, clearModalInputState } = actions;
+const { postBookStart, editBookStart } = actions;
 
 const ModalForm = (props) => {
   const dispatch = useDispatch();

@@ -6,3 +6,5 @@ export const selectBookById = createSelector(
 );
 
 export const isBooksLoadingSelector = (state) => state.books.isBooksLoading;
+
+export const errorSelector = (state) => state.books.error;
