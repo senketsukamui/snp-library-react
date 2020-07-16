@@ -52,7 +52,7 @@ const BookListItem = (props) => {
         <div className={styles["image"]}>
           <img
             src={isValidImage(props.image) ? props.image : default_book}
-            alt="Book image"
+            alt="Book cover"
             className={styles["book-logo"]}
           />
         </div>

@@ -1,6 +1,9 @@
 import React from "react";
 import styles from "./index.module.css";
-import { selectBookById, isBooksLoadingSelector } from "models/booksList/selectors";
+import {
+  selectBookById,
+  isBooksLoadingSelector,
+} from "models/booksList/selectors";
 import { useSelector, useDispatch } from "react-redux";
 import default_book from "assets/images/default_book.jpg";
 import { isValidImage } from "utils";
@@ -46,7 +49,7 @@ const BookInfo = (props) => {
       <div className={styles["information"]}>
         <img
           src={isValidImage(image) ? image : default_book}
-          alt="book-image"
+          alt="Book cover"
           className={styles["image"]}
         />
         <div className={styles["title"]}>{title}</div>
