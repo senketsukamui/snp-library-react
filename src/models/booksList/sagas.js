@@ -51,7 +51,6 @@ function* editBookEffect(action) {
       action.payload.id,
       action.payload
     );
-    console.log(newBookInfo);
     yield put(editBookSuccess(newBookInfo));
   } catch (error) {
     yield put(editBookFailed());

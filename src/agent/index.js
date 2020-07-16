@@ -1,7 +1,6 @@
 export const getRequest = (url) => {
   return fetch(url)
     .then((response) => {
-      console.log(response);
       if (!response.ok) throw new Error();
       return response.json();
     })
@@ -36,7 +35,6 @@ export const putRequest = (url, id, body = {}) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   }).then((response) => {
-    console.log(response);
     if (!response.ok) throw new Error();
     return response.json();
   });
