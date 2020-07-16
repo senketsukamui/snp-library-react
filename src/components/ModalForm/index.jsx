@@ -3,10 +3,9 @@ import { createPortal } from "react-dom";
 import styles from "./index.module.css";
 import {
   changeModalInputState,
-  postBook,
   clearModalInputState,
-  editBookInfo,
-} from "store/slice";
+} from "models/modal/slice";
+import { postBook, editBookInfo } from "models/booksList/slice";
 import { useDispatch, useSelector } from "react-redux";
 import { MODAL_TYPES } from "utils/constants";
 

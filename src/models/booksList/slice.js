@@ -12,12 +12,7 @@ const initialState = {
   booksList: [],
   currentBookId: "",
   isBooksLoading: false,
-  modalInputState: {
-    author: "",
-    title: "",
-    description: "",
-    image: "",
-  },
+
 };
 
 export const fetchBooks = createAsyncThunk(
@@ -77,15 +72,6 @@ const booksLibrary = createSlice({
     changeCurrentBookId(state, action) {
       state.currentBookId = action.payload;
     },
-    changeModalInputState(state, action) {
-      state.modalInputState[action.payload.field] = action.payload.value;
-    },
-    clearModalInputState(state, action) {
-      state.modalInputState = initialState.modalInputState;
-    },
-    setModalInputState(state, action) {
-      state.modalInputState = action.payload;
-    },
   },
   extraReducers: {
     [fetchBooks.fulfilled]: (state, action) => {
@@ -119,9 +105,6 @@ const booksLibrary = createSlice({
 
 export const {
   changeCurrentBookId,
-  changeModalInputState,
-  clearModalInputState,
-  setModalInputState,
 } = booksLibrary.actions;
 
 export default booksLibrary;

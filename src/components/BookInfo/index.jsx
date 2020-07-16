@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./index.module.css";
-import { selectBookById } from "store/selectors";
+import { selectBookById } from "models/booksList/selectors";
 import { useSelector, useDispatch } from "react-redux";
 import default_book from "assets/images/default_book.jpg";
 import { isValidImage } from "utils";
-import { changeCurrentBookId } from "store/slice";
+import { changeCurrentBookId } from "models/booksList/slice";
 import Loader from "components/Loader";
 import { useHistory } from "react-router";
 
@@ -40,7 +40,7 @@ const BookInfo = (props) => {
       </div>
     );
   }
-  
+
   return (
     <div className={styles["book-info"]}>
       <div className={styles["information"]}>

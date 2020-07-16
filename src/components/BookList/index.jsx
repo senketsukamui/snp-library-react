@@ -5,7 +5,7 @@ import BookListItem from "components/BookList/BookListItem";
 import Scrollbars from "react-custom-scrollbars";
 import ModalForm from "components/ModalForm";
 import { MODAL_TYPES } from "utils/constants";
-import { fetchTodosWithFilter, fetchBooks } from "store/slice";
+import { fetchTodosWithFilter, fetchBooks } from "models/booksList/slice";
 import queryString from "query-string";
 import { useHistory } from "react-router";
 

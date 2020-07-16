@@ -2,11 +2,8 @@ import React from "react";
 import styles from "./index.module.css";
 import { getShortString, isValidImage } from "utils";
 import { useDispatch } from "react-redux";
-import {
-  changeCurrentBookId,
-  deleteBook,
-  setModalInputState,
-} from "store/slice";
+import { changeCurrentBookId, deleteBook } from "models/booksList/slice";
+import { setModalInputState } from "models/modal/slice";
 import { useHistory } from "react-router-dom";
 import default_book from "assets/images/default_book.jpg";
 import ModalForm from "components/ModalForm";
@@ -48,7 +45,7 @@ const BookListItem = (props) => {
   const toggleEditModal = React.useCallback(() => {
     setEditModalState(!isEditModalOpen);
   }, [isEditModalOpen]);
-  
+
   return (
     <div className={styles["booklist-item"]}>
       <div className={styles["booklist-content"]} onClick={handleItemClick}>
