@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./index.module.css";
-import { selectBookById } from "models/booksList/selectors";
+import { selectBookById, isBooksLoadingSelector } from "models/booksList/selectors";
 import { useSelector, useDispatch } from "react-redux";
 import default_book from "assets/images/default_book.jpg";
 import { isValidImage } from "utils";
@@ -19,7 +19,7 @@ const BookInfo = (props) => {
 
   const selectedBookInfo = useSelector(selectBookById);
 
-  const isBooksLoading = useSelector((state) => state.books.isBooksLoading);
+  const isBooksLoading = useSelector(isBooksLoadingSelector);
 
   if (isBooksLoading) {
     return <Loader />;

@@ -8,6 +8,7 @@ import {
 import { postBook, editBookInfo } from "models/booksList/slice";
 import { useDispatch, useSelector } from "react-redux";
 import { MODAL_TYPES } from "utils/constants";
+import { modalFieldsSelector } from "models/modal/selectors";
 
 const ModalForm = (props) => {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ const ModalForm = (props) => {
     [dispatch]
   );
 
-  const formState = useSelector((state) => state.books.modalInputState);
+  const formState = useSelector(modalFieldsSelector);
 
   const { author, title, description, image } = formState;
 
