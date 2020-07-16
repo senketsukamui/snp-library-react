@@ -44,7 +44,7 @@ const ModalForm = (props) => {
   );
 
   const toggleEditModal = React.useCallback(() => {
-    props.toggleModal();
+    props.onToggleModal();
     dispatch(clearModalInputState());
   }, [dispatch, props]);
 

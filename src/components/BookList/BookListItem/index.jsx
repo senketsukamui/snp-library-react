@@ -84,7 +84,7 @@ const BookListItem = (props) => {
       {isEditModalOpen ? (
         <ModalForm
           type={MODAL_TYPES.EDIT}
-          toggleModal={toggleEditModal}
+          onToggleModal={toggleEditModal}
           {...props}
         />
       ) : (
