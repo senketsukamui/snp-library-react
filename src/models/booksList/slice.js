@@ -1,110 +1,94 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import {
-  api,
-  getRequest,
-  getFilteredTodos,
-  postRequest,
-  deleteRequest,
-  putRequest,
-} from "agent";
-
+import { createSlice } from "@reduxjs/toolkit";
+import { actionTypes } from "utils";
 const initialState = {
   booksList: [],
   currentBookId: "",
   isBooksLoading: false,
-
+  error: false,
 };
-
-export const fetchBooks = createAsyncThunk(
-  "booksLibrary/getBooks",
-  async () => {
-    const fetchedBooks = getRequest(api).then((json) => {
-      return json;
-    });
-    return fetchedBooks;
-  }
-);
-
-export const postBook = createAsyncThunk(
-  "booksLibrary/postBook",
-  async (bookInfo) => {
-    const postedBook = postRequest(api, bookInfo).then((json) => {
-      return json;
-    });
-    return postedBook;
-  }
-);
-
-export const deleteBook = createAsyncThunk(
-  "booksLibrary/deleteBook",
-  async (bookId) => {
-    deleteRequest(api, bookId);
-    return bookId;
-  }
-);
-
-export const editBookInfo = createAsyncThunk(
-  "booksLibrary/editBookInfo",
-  async (bookInfo) => {
-    const newBookInfo = putRequest(api, bookInfo.id, bookInfo).then((json) => {
-      return json;
-    });
-
-    return newBookInfo;
-  }
-);
-
-export const fetchTodosWithFilter = createAsyncThunk(
-  "booksLibrary/fetchTodosWithFilter",
-  async (filterString) => {
-    const filteredBooks = getFilteredTodos(api, filterString).then((json) => {
-      return json;
-    });
-
-    return filteredBooks;
-  }
-);
 
 const booksLibrary = createSlice({
   name: "booksLibrary",
   initialState,
   reducers: {
-    changeCurrentBookId(state, action) {
-      state.currentBookId = action.payload;
+    changeCurrentBookId(state, { payload }) {
+      state.currentBookId = payload;
     },
-  },
-  extraReducers: {
-    [fetchBooks.fulfilled]: (state, action) => {
+    fetchBooksStart(state) {
+      state.isBooksLoading = true;
+    },
+    fetchBooksSuccess(state, action) {
       state.booksList = action.payload;
       state.isBooksLoading = false;
     },
-    [fetchBooks.pending]: (state, action) => {
+    fetchBooksFailed(state) {
+      state.error = true;
+    },
+    postBookStart(state) {
       state.isBooksLoading = true;
     },
-    [postBook.fulfilled]: (state, action) => {
-      state.booksList.push(action.payload);
+    postBookSuccess(state, { payload }) {
+      state.isBooksLoading = false;
+      state.booksList.push(payload);
     },
-    [deleteBook.fulfilled]: (state, action) => {
+    postBookFailed(state) {
+      state.error = false;
+    },
+    deleteBookStart(state, { payload }) {
+      state.isBooksLoading = true;
+    },
+    deleteBookSuccess(state, { payload }) {
+      state.isBooksLoading = false;
       state.booksList = state.booksList.filter((book) => {
-        return book.id !== action.payload;
+        return book.id !== payload;
       });
     },
-    [editBookInfo.fulfilled]: (state, action) => {
-      const idx = state.booksList.findIndex((e) => e.id === action.payload.id);
-      state.booksList[idx] = action.payload;
+    deleteBookFailed(state) {
+      state.error = true;
     },
-    [fetchTodosWithFilter.fulfilled]: (state, action) => {
-      state.booksList = action.payload;
+    editBookStart(state) {
+      state.isBooksLoading = true;
+    },
+    editBookSuccess(state, { payload }) {
+      state.isBooksLoading = false;
+      const idx = state.booksList.findIndex((e) => e.id === payload.id);
+      state.booksList[idx] = payload;
+    },
+    editBookFailed(state) {
+      state.error = true;
+    },
+    fetchBooksWithFilterStart(state) {
+      state.isBooksLoading = true;
+    },
+    fetchBooksWithFilterSuccess(state, { payload }) {
+      state.booksList = payload;
       state.isBooksLoading = false;
     },
-    [fetchTodosWithFilter.pending]: (state, action) => {
-      state.isBooksLoading = true;
+    fetchBooksWithFilterFailed(state) {
+      state.error = true;
     },
   },
 });
 
 export const {
   changeCurrentBookId,
+  fetchBooksStart,
+  fetchBooksSuccess,
+  fetchBooksFailed,
+  postBookStart,
+  postBookFailed,
+  postBookSuccess,
+  deleteBookStart,
+  deleteBookFailed,
+  deleteBookSuccess,
+  editBookFailed,
+  editBookStart,
+  editBookSuccess,
+  fetchBooksWithFilterStart,
+  fetchBooksWithFilterSuccess,
+  fetchBooksWithFilterFailed,
 } = booksLibrary.actions;
+
+export const actions = actionTypes(booksLibrary.actions);
 
 export default booksLibrary;

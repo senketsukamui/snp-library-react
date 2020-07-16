@@ -5,9 +5,11 @@ import BookListItem from "components/BookList/BookListItem";
 import Scrollbars from "react-custom-scrollbars";
 import ModalForm from "components/ModalForm";
 import { MODAL_TYPES } from "utils/constants";
-import { fetchTodosWithFilter, fetchBooks } from "models/booksList/slice";
+import { actions } from "models/booksList/slice";
 import queryString from "query-string";
 import { useHistory } from "react-router";
+
+const { fetchBooksWithFilterStart, fetchBooksStart } = actions;
 
 const BookList = (props) => {
   const dispatch = useDispatch();
@@ -22,9 +24,9 @@ const BookList = (props) => {
     const queryStringFilter = queryString.parse(props.location.search).search;
     if (queryStringFilter) {
       changeCurrentFilter(queryStringFilter);
-      dispatch(fetchTodosWithFilter(queryStringFilter));
+      dispatch(fetchBooksWithFilterStart(queryStringFilter));
     } else {
-      dispatch(fetchBooks());
+      dispatch(fetchBooksStart());
     }
   }, [dispatch, props.location.search]);
 
@@ -42,7 +44,7 @@ const BookList = (props) => {
   const handleFormSubmit = React.useCallback(
     (e) => {
       e.preventDefault();
-      dispatch(fetchTodosWithFilter(currentFilter));
+      dispatch(fetchBooksWithFilterStart(currentFilter));
       if (!currentFilter.length) {
         history.push("/books");
       } else {

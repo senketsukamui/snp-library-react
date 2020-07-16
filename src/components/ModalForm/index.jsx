@@ -1,14 +1,13 @@
 import React from "react";
 import { createPortal } from "react-dom";
 import styles from "./index.module.css";
-import {
-  changeModalInputState,
-  clearModalInputState,
-} from "models/modal/slice";
-import { postBook, editBookInfo } from "models/booksList/slice";
+import { actions } from "models/booksList/slice";
+import { postBookStart, editBookStart } from "models/booksList/slice";
 import { useDispatch, useSelector } from "react-redux";
 import { MODAL_TYPES } from "utils/constants";
 import { modalFieldsSelector } from "models/modal/selectors";
+
+const { changeModalInputState, clearModalInputState } = actions;
 
 const ModalForm = (props) => {
   const dispatch = useDispatch();
@@ -33,9 +32,9 @@ const ModalForm = (props) => {
     (e) => {
       e.preventDefault();
       if (props.type === MODAL_TYPES.CREATE) {
-        dispatch(postBook(formState));
+        dispatch(postBookStart(formState));
       } else if (props.type === MODAL_TYPES.EDIT) {
-        dispatch(editBookInfo(formState));
+        dispatch(editBookStart(formState));
       }
       props.onToggleModal();
       dispatch(clearModalInputState());

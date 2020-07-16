@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./index.module.css";
 import { getShortString, isValidImage } from "utils";
 import { useDispatch } from "react-redux";
-import { changeCurrentBookId, deleteBook } from "models/booksList/slice";
+import { actions } from "models/booksList/slice";
 import { setModalInputState } from "models/modal/slice";
 import { useHistory } from "react-router-dom";
 import default_book from "assets/images/default_book.jpg";
@@ -10,6 +10,8 @@ import ModalForm from "components/ModalForm";
 import { MODAL_TYPES } from "utils/constants";
 import edit from "assets/images/edit.svg";
 import trash from "assets/images/trash.svg";
+
+const { changeCurrentBookId, deleteBookStart } = actions;
 
 const BookListItem = (props) => {
   const dispatch = useDispatch();
@@ -24,7 +26,7 @@ const BookListItem = (props) => {
   }, [dispatch, history, props.id]);
 
   const handleItemDelete = React.useCallback(() => {
-    dispatch(deleteBook(props.id));
+    dispatch(deleteBookStart(props.id));
     history.push("/books");
   }, [dispatch, history, props.id]);
 

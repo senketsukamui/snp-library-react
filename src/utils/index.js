@@ -11,3 +11,13 @@ export const getShortString = (length, str) => {
 export const isValidImage = (url) => {
   return /.(jpeg|jpg|png|gif)\b/g.test(url);
 };
+
+export const actionTypes = (actions) => {
+  return Object.keys(actions).reduce(
+    (acc, key) => ({
+      ...acc,
+      [key]: actions[key],
+    }),
+    {}
+  );
+};
