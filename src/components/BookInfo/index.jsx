@@ -28,13 +28,6 @@ const BookInfo = (props) => {
     return <Loader />;
   }
 
-  const { title, author, description, image } =
-    selectedBookInfo !== undefined && selectedBookInfo;
-
-  const handleCloseClick = () => {
-    history.push("/books");
-  };
-
   if (!selectedBookInfo) {
     return (
       <div className={styles["error"]}>
@@ -43,6 +36,12 @@ const BookInfo = (props) => {
       </div>
     );
   }
+
+  const { title, author, description, image } = selectedBookInfo;
+
+  const handleCloseClick = () => {
+    history.push("/books");
+  };
 
   return (
     <div className={styles["book-info"]}>
