@@ -43,7 +43,7 @@ const BookList = (props) => {
     (e) => {
       e.preventDefault();
       dispatch(fetchTodosWithFilter(currentFilter));
-      if (!currentFilter.length || currentFilter === undefined) {
+      if (!currentFilter.length) {
         history.push("/books");
       } else {
         history.push(`/books/?search=${currentFilter}`);
@@ -61,8 +61,8 @@ const BookList = (props) => {
     <div className={styles["booklist"]}>
       {isModalOpen ? (
         <ModalForm
-          onToggleModal={handleToggleModal}
           type={MODAL_TYPES.CREATE}
+          onToggleModal={handleToggleModal}
         />
       ) : (
         ""
@@ -77,9 +77,9 @@ const BookList = (props) => {
         <form onSubmit={handleFormSubmit} onBlur={handleFormSubmit}>
           <input
             type="text"
-            onChange={handleInputChange}
             value={currentFilter}
             className={styles["booklist-input"]}
+            onChange={handleInputChange}
           />
           <button className={styles["booklist-search"]} type="submit">
             Search
