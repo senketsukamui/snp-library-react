@@ -35,7 +35,7 @@ const BookInfo = (props) => {
     history.push("/books");
   };
 
-  if (selectedBookInfo === undefined) {
+  if (!selectedBookInfo) {
     return (
       <div className={styles["error"]}>
         There is no book with that id. Try to choose another or create a new
