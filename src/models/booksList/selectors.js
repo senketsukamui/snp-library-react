@@ -8,3 +8,5 @@ export const selectBookById = createSelector(
 export const isBooksLoadingSelector = (state) => state.books.isBooksLoading;
 
 export const errorSelector = (state) => state.books.error;
+
+export const bookListSelector = (state) => state.books.booksList;

@@ -8,6 +8,7 @@ import { MODAL_TYPES } from "utils/constants";
 import { actions } from "models/booksList/slice";
 import queryString from "query-string";
 import { useHistory } from "react-router";
+import { bookListSelector } from "models/booksList/selectors";
 
 const { fetchBooksWithFilterStart, fetchBooksStart } = actions;
 
@@ -30,7 +31,7 @@ const BookList = (props) => {
     }
   }, [dispatch, props.location.search]);
 
-  const books = useSelector((state) => state.books.booksList);
+  const books = useSelector(bookListSelector);
   const handleToggleModal = React.useCallback(
     () => setModalOpen(!isModalOpen),
     [isModalOpen]
