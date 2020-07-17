@@ -3,12 +3,14 @@ import { createPortal } from "react-dom";
 import styles from "./index.module.css";
 import {
   changeModalInputState,
-  postBook,
   clearModalInputState,
-  editBookInfo,
-} from "store/slice";
+} from "models/modal/slice";
+import { actions } from "models/booksList/slice";
 import { useDispatch, useSelector } from "react-redux";
 import { MODAL_TYPES } from "utils/constants";
+import { modalFieldsSelector } from "models/modal/selectors";
+
+const { postBookStart, editBookStart } = actions;
 
 const ModalForm = (props) => {
   const dispatch = useDispatch();
@@ -25,7 +27,7 @@ const ModalForm = (props) => {
     [dispatch]
   );
 
-  const formState = useSelector((state) => state.books.modalInputState);
+  const formState = useSelector(modalFieldsSelector);
 
   const { author, title, description, image } = formState;
 
@@ -33,18 +35,18 @@ const ModalForm = (props) => {
     (e) => {
       e.preventDefault();
       if (props.type === MODAL_TYPES.CREATE) {
-        dispatch(postBook(formState));
+        dispatch(postBookStart(formState));
       } else if (props.type === MODAL_TYPES.EDIT) {
-        dispatch(editBookInfo(formState));
+        dispatch(editBookStart(formState));
       }
-      props.toggleModal();
+      props.onToggleModal();
       dispatch(clearModalInputState());
     },
     [dispatch, formState, props]
   );
 
   const toggleEditModal = React.useCallback(() => {
-    props.toggleModal();
+    props.onToggleModal();
     dispatch(clearModalInputState());
   }, [dispatch, props]);
 
@@ -58,9 +60,9 @@ const ModalForm = (props) => {
             data-name="author"
             type="text"
             id="author"
-            onChange={handleInputChange}
             value={author}
             maxLength={100}
+            onChange={handleInputChange}
             required
           />
           <label htmlFor="title">Title</label>
@@ -68,9 +70,9 @@ const ModalForm = (props) => {
             data-name="title"
             type="text"
             id="title"
-            onChange={handleInputChange}
             value={title}
             maxLength={150}
+            onChange={handleInputChange}
             required
           />
           <label htmlFor="description">Description</label>
@@ -78,9 +80,9 @@ const ModalForm = (props) => {
             data-name="description"
             type="text"
             id="description"
-            onChange={handleInputChange}
             value={description}
             maxLength={1350}
+            onChange={handleInputChange}
             required
           />
           <label htmlFor="image">Image</label>
@@ -88,8 +90,8 @@ const ModalForm = (props) => {
             data-name="image"
             type="text"
             id="image"
-            onChange={handleInputChange}
             value={image}
+            onChange={handleInputChange}
           />
           <button type="submit" className={styles["modal-submit"]}>
             Submit
@@ -98,7 +100,7 @@ const ModalForm = (props) => {
             onClick={
               props.type === MODAL_TYPES.EDIT
                 ? toggleEditModal
-                : props.toggleModal
+                : props.onToggleModal
             }
             className={styles["modal-close"]}
           >

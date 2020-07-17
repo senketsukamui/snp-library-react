@@ -5,9 +5,12 @@ import BookListItem from "components/BookList/BookListItem";
 import Scrollbars from "react-custom-scrollbars";
 import ModalForm from "components/ModalForm";
 import { MODAL_TYPES } from "utils/constants";
-import { fetchTodosWithFilter, fetchBooks } from "store/slice";
+import { actions } from "models/booksList/slice";
 import queryString from "query-string";
 import { useHistory } from "react-router";
+import { bookListSelector } from "models/booksList/selectors";
+
+const { fetchBooksWithFilterStart, fetchBooksStart } = actions;
 
 const BookList = (props) => {
   const dispatch = useDispatch();
@@ -22,17 +25,17 @@ const BookList = (props) => {
     const queryStringFilter = queryString.parse(props.location.search).search;
     if (queryStringFilter) {
       changeCurrentFilter(queryStringFilter);
-      dispatch(fetchTodosWithFilter(queryStringFilter));
+      dispatch(fetchBooksWithFilterStart(queryStringFilter));
     } else {
-      dispatch(fetchBooks());
+      dispatch(fetchBooksStart());
     }
   }, [dispatch, props.location.search]);
 
-  const books = useSelector((state) => state.books.booksList);
-
-  const toggleModal = React.useCallback(() => setModalOpen(!isModalOpen), [
-    isModalOpen,
-  ]);
+  const books = useSelector(bookListSelector);
+  const handleToggleModal = React.useCallback(
+    () => setModalOpen(!isModalOpen),
+    [isModalOpen]
+  );
 
   const handleInputChange = React.useCallback((e) => {
     changeCurrentFilter(e.target.value);
@@ -41,8 +44,8 @@ const BookList = (props) => {
   const handleFormSubmit = React.useCallback(
     (e) => {
       e.preventDefault();
-      dispatch(fetchTodosWithFilter(currentFilter));
-      if (!currentFilter.length || currentFilter === undefined) {
+      dispatch(fetchBooksWithFilterStart(currentFilter));
+      if (!currentFilter.length) {
         history.push("/books");
       } else {
         history.push(`/books/?search=${currentFilter}`);
@@ -51,27 +54,34 @@ const BookList = (props) => {
     [dispatch, currentFilter, history]
   );
 
-  const renderedBooks = books.map((e) => {
-    return <BookListItem {...e} key={e.id} />;
-  });
+  const renderedBooks = React.useMemo(
+    () => books.map((book) => <BookListItem {...book} key={book.id} />),
+    [books]
+  );
 
   return (
     <div className={styles["booklist"]}>
       {isModalOpen ? (
-        <ModalForm toggleModal={toggleModal} type={MODAL_TYPES.CREATE} />
+        <ModalForm
+          type={MODAL_TYPES.CREATE}
+          onToggleModal={handleToggleModal}
+        />
       ) : (
         ""
       )}
       <Scrollbars>
-        <button className={styles["booklist-create"]} onClick={toggleModal}>
+        <button
+          className={styles["booklist-create"]}
+          onClick={handleToggleModal}
+        >
           Create new book
         </button>
         <form onSubmit={handleFormSubmit} onBlur={handleFormSubmit}>
           <input
             type="text"
-            onChange={handleInputChange}
             value={currentFilter}
             className={styles["booklist-input"]}
+            onChange={handleInputChange}
           />
           <button className={styles["booklist-search"]} type="submit">
             Search

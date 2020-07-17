@@ -9,3 +9,11 @@
   background-color: #f7f7f7;
   color: #393e46;
 }
+
+.error {
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin: 0 auto;
+}

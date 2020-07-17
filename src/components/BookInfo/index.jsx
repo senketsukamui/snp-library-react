@@ -1,10 +1,13 @@
 import React from "react";
 import styles from "./index.module.css";
-import { selectBookById } from "store/selectors";
+import {
+  selectBookById,
+  isBooksLoadingSelector,
+} from "models/booksList/selectors";
 import { useSelector, useDispatch } from "react-redux";
 import default_book from "assets/images/default_book.jpg";
 import { isValidImage } from "utils";
-import { changeCurrentBookId } from "store/slice";
+import { changeCurrentBookId } from "models/booksList/slice";
 import Loader from "components/Loader";
 import { useHistory } from "react-router";
 
@@ -19,20 +22,13 @@ const BookInfo = (props) => {
 
   const selectedBookInfo = useSelector(selectBookById);
 
-  const isBooksLoading = useSelector((state) => state.books.isBooksLoading);
+  const isBooksLoading = useSelector(isBooksLoadingSelector);
 
   if (isBooksLoading) {
     return <Loader />;
   }
 
-  const { title, author, description, image } =
-    selectedBookInfo !== undefined && selectedBookInfo;
-
-  const handleCloseClick = () => {
-    history.push("/books");
-  };
-
-  if (selectedBookInfo === undefined) {
+  if (!selectedBookInfo) {
     return (
       <div className={styles["error"]}>
         There is no book with that id. Try to choose another or create a new
@@ -40,13 +36,19 @@ const BookInfo = (props) => {
       </div>
     );
   }
-  
+
+  const { title, author, description, image } = selectedBookInfo;
+
+  const handleCloseClick = () => {
+    history.push("/books");
+  };
+
   return (
     <div className={styles["book-info"]}>
       <div className={styles["information"]}>
         <img
           src={isValidImage(image) ? image : default_book}
-          alt="book-image"
+          alt="Book cover"
           className={styles["image"]}
         />
         <div className={styles["title"]}>{title}</div>
